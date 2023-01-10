@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KODU LIVE</title>
+    <link rel="icon" href="KODU-LIVE.png">
+</head>
+<body onload="get()">
+    <h1>How to save with Javascript</h1>
+    <h2>Keep track of save files!!</h2>
+    <hr>
+    <p id="savedText"></p>
+    <p id="openedText"></p>
+    <p id="savedGame"></p>
+    <p id="openedGame"></p>
+    <input type="text" id="input" placeholder="Enter Time">
+    <input type="text" id="game" placeholder="Enter Game">
+    <button onclick="save()">SAVE SPEEDRUN TIME</button>
+</body>
+
+<script>
+    var storedItem = localStorage.getItem("storedItem");
+    var storedGame = localStorage.getItem("storedGame");
+
+    function save(){
+        var Item = document.getElementById("input").value;
+        var Game = document.getElementById("game").value;
+        localStorage.setItem("storedItem", Item);
+        localStorage.setItem("storedGame", Game);
+        document.getElementById("savedText").innerHTML = Item + " SAVED. The Game is " + Game;
+    }
+
+    function get(){
+        localStorage.getItem("storedItem");
+        localStorage.getItem("storedGame")
+        document.getElementById("openedText").innerHTML = storedItem + " OPENED. The Game is " + storedGame;
+    }
+</script>
+
+</html>
